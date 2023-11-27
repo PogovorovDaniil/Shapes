@@ -16,14 +16,16 @@
 	"Id"	INTEGER NOT NULL,
 	"Name"	TEXT NOT NULL,
 	PRIMARY KEY("Id" AUTOINCREMENT)
-)```
+);
+```
 
 ## Создание таблицы категорий:
 ```CREATE TABLE "Categories" (
 	"Id"	INTEGER NOT NULL,
 	"Name"	TEXT NOT NULL,
 	PRIMARY KEY("Id" AUTOINCREMENT)
-);```
+);
+```
 
 ## Создание развязочной таблицы:
 ```CREATE TABLE "ProductToCategories" (
@@ -32,7 +34,8 @@
 	FOREIGN KEY("ProductId") REFERENCES "Products"("Id"),
 	FOREIGN KEY("CategoryId") REFERENCES "Categories"("Id"),
 	PRIMARY KEY("ProductId","CategoryId")
-);```
+);
+```
 
 ## Заполняем таблицы данными
 ```INSERT INTO "main"."Products" ("Name") VALUES ('Чайник');
@@ -51,10 +54,12 @@ INSERT INTO "main"."ProductToCategories" ("ProductId", "CategoryId") VALUES ('4'
 INSERT INTO "main"."ProductToCategories" ("ProductId", "CategoryId") VALUES ('3', '2');
 INSERT INTO "main"."ProductToCategories" ("ProductId", "CategoryId") VALUES ('5', '2');
 INSERT INTO "main"."ProductToCategories" ("ProductId", "CategoryId") VALUES ('2', '2');
-INSERT INTO "main"."ProductToCategories" ("ProductId", "CategoryId") VALUES ('2', '3');```
+INSERT INTO "main"."ProductToCategories" ("ProductId", "CategoryId") VALUES ('2', '3');
+```
 
 ## Решение задачи:
 ```SELECT Products.Name ProductName, Categories.Name CategoryName
 FROM Products
 LEFT JOIN ProductToCategories ON ProductId = Products.Id
-LEFT JOIN Categories ON CategoryId = Categories.Id```
+LEFT JOIN Categories ON CategoryId = Categories.Id
+```
