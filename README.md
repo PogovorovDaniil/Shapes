@@ -12,7 +12,8 @@
 По возможности — положите ответ рядом с кодом из первого вопроса.
 
 ## Создание таблицы товаров:
-```CREATE TABLE "Products" (
+```sql
+CREATE TABLE "Products" (
 	"Id"	INTEGER NOT NULL,
 	"Name"	TEXT NOT NULL,
 	PRIMARY KEY("Id" AUTOINCREMENT)
@@ -20,7 +21,8 @@
 ```
 
 ## Создание таблицы категорий:
-```CREATE TABLE "Categories" (
+```sql
+CREATE TABLE "Categories" (
 	"Id"	INTEGER NOT NULL,
 	"Name"	TEXT NOT NULL,
 	PRIMARY KEY("Id" AUTOINCREMENT)
@@ -28,7 +30,8 @@
 ```
 
 ## Создание развязочной таблицы:
-```CREATE TABLE "ProductToCategories" (
+```sql
+CREATE TABLE "ProductToCategories" (
 	"ProductId"	INTEGER NOT NULL,
 	"CategoryId"	INTEGER NOT NULL,
 	FOREIGN KEY("ProductId") REFERENCES "Products"("Id"),
@@ -38,7 +41,8 @@
 ```
 
 ## Заполняем таблицы данными
-```INSERT INTO "main"."Products" ("Name") VALUES ('Чайник');
+```sql
+INSERT INTO "main"."Products" ("Name") VALUES ('Чайник');
 INSERT INTO "main"."Products" ("Name") VALUES ('Фен');
 INSERT INTO "main"."Products" ("Name") VALUES ('Стиральная машина');
 INSERT INTO "main"."Products" ("Name") VALUES ('Микроволновая печь');
@@ -58,7 +62,8 @@ INSERT INTO "main"."ProductToCategories" ("ProductId", "CategoryId") VALUES ('2'
 ```
 
 ## Решение задачи:
-```SELECT Products.Name ProductName, Categories.Name CategoryName
+```sql
+SELECT Products.Name ProductName, Categories.Name CategoryName
 FROM Products
 LEFT JOIN ProductToCategories ON ProductId = Products.Id
 LEFT JOIN Categories ON CategoryId = Categories.Id
